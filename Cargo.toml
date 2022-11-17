@@ -1,0 +1,24 @@
+[package]
+name = "kv_server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bytes = "1" # Handle network data buffer
+dashmap = "4" # Concurrent hashMap
+http = "0.2" # HTTP status code
+prost = "0.9" # handle protobuf
+thiserror = "1" # Error handle
+tracing = "0.1" # Logging
+
+[dev-dependencies]
+anyhow = "1" # error handling
+async-prost = "0.3" # Wrap protobuf as a TCP frame
+futures = "0.3" # Provides Stream trait
+tokio = { version="1", features=["rt", "rt-multi-thread", "io-util", "macros", "net"] } # Async web server
+tracing-subscriber = "0.3" # Logging
+
+[build-dependencies]
+prost-build = "0.9" # Compile protobuf
