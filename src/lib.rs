@@ -1,14 +1,13 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+/**
+ * Entry file
+ */
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod pb;
+mod error;
+mod service;
+mod storage;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use error::*;
+pub use pb::abi::*;
+pub use service::*;
+pub use storage::*;

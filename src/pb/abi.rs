@@ -1,5 +1,5 @@
 /// Request from client
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CommandRequest {
     #[prost(oneof="command_request::RequestData", tags="1, 2, 3, 4, 5, 6, 7, 8, 9")]
@@ -7,7 +7,7 @@ pub struct CommandRequest {
 }
 /// Nested message and enum types in `CommandRequest`.
 pub mod command_request {
-    #[derive[PartialOrd]]
+    #[derive(PartialOrd)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum RequestData {
         #[prost(message, tag="1")]
@@ -31,7 +31,7 @@ pub mod command_request {
     }
 }
 /// Server response
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CommandResponse {
     #[prost(uint32, tag="1")]
@@ -44,7 +44,7 @@ pub struct CommandResponse {
     pub pairs: ::prost::alloc::vec::Vec<Kvpair>,
 }
 /// Get a key value from a specified table.
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hget {
     #[prost(string, tag="1")]
@@ -53,14 +53,14 @@ pub struct Hget {
     pub key: ::prost::alloc::string::String,
 }
 /// Get values of multi keys
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hgetall {
     #[prost(string, tag="1")]
     pub table: ::prost::alloc::string::String,
 }
 /// The value of key that returned
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmget {
     #[prost(string, tag="1")]
@@ -69,7 +69,7 @@ pub struct Hmget {
     pub keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// kvpair returned
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Value {
     #[prost(oneof="value::Value", tags="1, 2, 3, 4, 5")]
@@ -77,7 +77,7 @@ pub struct Value {
 }
 /// Nested message and enum types in `Value`.
 pub mod value {
-    #[derive[PartialOrd]]
+    #[derive(PartialOrd)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Value {
         #[prost(string, tag="1")]
@@ -93,7 +93,7 @@ pub mod value {
     }
 }
 /// kvpair that returned
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Kvpair {
     #[prost(string, tag="1")]
@@ -102,7 +102,7 @@ pub struct Kvpair {
     pub value: ::core::option::Option<Value>,
 }
 /// Store a single kvpair
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hset {
     #[prost(string, tag="1")]
@@ -111,7 +111,7 @@ pub struct Hset {
     pub pair: ::core::option::Option<Kvpair>,
 }
 /// Store multi kvpairs
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmset {
     #[prost(string, tag="1")]
@@ -120,7 +120,7 @@ pub struct Hmset {
     pub pairs: ::prost::alloc::vec::Vec<Kvpair>,
 }
 /// Delete a key and associated value
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hdel {
     #[prost(string, tag="1")]
@@ -129,7 +129,7 @@ pub struct Hdel {
     pub key: ::prost::alloc::string::String,
 }
 /// Delete multi key and associated values
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmdel {
     #[prost(string, tag="1")]
@@ -138,7 +138,7 @@ pub struct Hmdel {
     pub keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Check if key exists
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hexist {
     #[prost(string, tag="1")]
@@ -147,11 +147,12 @@ pub struct Hexist {
     pub key: ::prost::alloc::string::String,
 }
 /// Check if multi keys exist
-#[derive[PartialOrd]]
+#[derive(PartialOrd)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmexist {
     #[prost(string, tag="1")]
     pub table: ::prost::alloc::string::String,
+    /// repeated means multi ordered values here
     #[prost(string, repeated, tag="2")]
     pub keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }

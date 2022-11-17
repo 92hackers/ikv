@@ -92,5 +92,5 @@ message Hexist {
 // Check if multi keys exist
 message Hmexist {
   string table = 1;
-  repeated string keys = 2;
+  repeated string keys = 2; // repeated means multi ordered values here
 }
